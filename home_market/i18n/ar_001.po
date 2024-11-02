@@ -1,0 +1,479 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* home_market
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-10-18 04:07+0000\n"
+"PO-Revision-Date: 2024-10-18 04:07+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: home_market
+#: model_terms:ir.ui.view,arch_db:home_market.view_product_template_form_inherit
+msgid "# Added label"
+msgstr ""
+
+#. module: home_market
+#: model_terms:ir.ui.view,arch_db:home_market.category_list
+msgid ""
+"<span class=\"fa fa-chevron-circle-left fa-2x\" style=\"color: gray;\" aria-hidden=\"true\"/>\n"
+"                    <span class=\"visually-hidden\">Previous</span>"
+msgstr ""
+
+#. module: home_market
+#: model_terms:ir.ui.view,arch_db:home_market.category_list
+msgid ""
+"<span class=\"fa fa-chevron-circle-right fa-2x\" style=\"color: gray;\" aria-hidden=\"true\"/>\n"
+"                    <span class=\"visually-hidden\">Next</span>"
+msgstr ""
+
+#. module: home_market
+#: model:ir.actions.act_window,name:home_market.action_run
+msgid "Action Run All Scraper"
+msgstr ""
+
+#. module: home_market
+#: model_terms:ir.ui.view,arch_db:home_market.view_action_run_all_scraper_Tree_direct
+msgid "Action Run All Scraper Custom"
+msgstr ""
+
+#. module: home_market
+#: model:ir.model.fields,field_description:home_market.field_product_category_url__active
+msgid "Active"
+msgstr ""
+
+#. module: home_market
+#: model_terms:ir.ui.view,arch_db:home_market.custom_scraper_template
+msgid "BeautifulSoup Scraper Output"
+msgstr ""
+
+#. module: home_market
+#: model_terms:ir.ui.view,arch_db:home_market.view_product_template_form_inherit
+msgid "Categories"
+msgstr ""
+
+#. module: home_market
+#: model:ir.model.fields,field_description:home_market.field_product_category_url__category_id
+#: model:ir.model.fields,field_description:home_market.field_product_track_prices__category_id
+msgid "Category"
+msgstr ""
+
+#. module: home_market
+#: model:ir.model.fields,field_description:home_market.field_product_category_url__category_url
+msgid "Category URL"
+msgstr ""
+
+#. module: home_market
+#: model_terms:ir.ui.view,arch_db:home_market.view_product_template_form_inherit
+msgid "Company Tges"
+msgstr ""
+
+#. module: home_market
+#: model_terms:ir.ui.view,arch_db:home_market.view_product_template_form_inherit
+msgid "Compare Price"
+msgstr ""
+
+#. module: home_market
+#: model:ir.model.fields,field_description:home_market.field_product_category_url__create_uid
+#: model:ir.model.fields,field_description:home_market.field_product_track_prices__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: home_market
+#: model:ir.model.fields,field_description:home_market.field_product_category_url__create_date
+#: model:ir.model.fields,field_description:home_market.field_product_track_prices__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: home_market
+#: model:ir.actions.act_url,name:home_market.action_custom_scraper
+#: model:ir.ui.menu,name:home_market.menu_custom_scraper
+msgid "Custom Scraper"
+msgstr ""
+
+#. module: home_market
+#: model_terms:ir.ui.view,arch_db:home_market.product_template_inherit
+msgid "Date"
+msgstr "تاريخ"
+
+#. module: home_market
+#: model:ir.model.fields,field_description:home_market.field_product_public_category__description
+#: model_terms:ir.ui.view,arch_db:home_market.view_product_public_category_form_inherit
+#: model_terms:ir.ui.view,arch_db:home_market.view_product_public_category_search
+#: model_terms:ir.ui.view,arch_db:home_market.view_product_public_category_tree_inherit
+msgid "Description"
+msgstr ""
+
+#. module: home_market
+#: model:ir.model.fields,field_description:home_market.field_product_track_prices__difference_compare_price
+msgid "Difference Compare Price"
+msgstr ""
+
+#. module: home_market
+#: model:ir.model.fields,field_description:home_market.field_product_track_prices__difference_discount
+msgid "Difference Discount"
+msgstr ""
+
+#. module: home_market
+#: model:ir.model.fields,field_description:home_market.field_product_track_prices__difference_price
+#: model_terms:ir.ui.view,arch_db:home_market.product_template_inherit
+msgid "Difference Price"
+msgstr "فرق السعر"
+
+#. module: home_market
+#: model:ir.model.fields,field_description:home_market.field_product_product__Discount
+#: model:ir.model.fields,field_description:home_market.field_product_template__Discount
+msgid "Discount"
+msgstr ""
+
+#. module: home_market
+#: model_terms:ir.ui.view,arch_db:home_market.view_product_template_form_inherit
+msgid "Discount (%)"
+msgstr ""
+
+#. module: home_market
+#: model:ir.model.fields,field_description:home_market.field_product_category_url__display_name
+#: model:ir.model.fields,field_description:home_market.field_product_track_prices__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: home_market
+#: model:ir.model.fields.selection,name:home_market.selection__product_category_url__run_state__done
+msgid "Done"
+msgstr ""
+
+#. module: home_market
+#: model:ir.model.fields.selection,name:home_market.selection__product_category_url__run_state__error
+msgid "Error"
+msgstr ""
+
+#. module: home_market
+#: model_terms:ir.ui.view,arch_db:home_market.product_template_inherit
+msgid "From Price"
+msgstr "من سعر"
+
+#. module: home_market
+#: model_terms:ir.ui.view,arch_db:home_market.view_product_template_form_inherit
+msgid "Group URL"
+msgstr ""
+
+#. module: home_market
+#: model:ir.model.fields,field_description:home_market.field_product_product__GroupUrl
+#: model:ir.model.fields,field_description:home_market.field_product_template__GroupUrl
+msgid "Group Url"
+msgstr ""
+
+#. module: home_market
+#: model:ir.ui.menu,name:home_market.menu_home_market_root
+#: model_terms:ir.ui.view,arch_db:home_market.view_product_template_form_inherit
+msgid "Home Market"
+msgstr ""
+
+#. module: home_market
+#: model:ir.model.fields,field_description:home_market.field_product_category_url__id
+#: model:ir.model.fields,field_description:home_market.field_product_track_prices__id
+msgid "ID"
+msgstr ""
+
+#. module: home_market
+#: model:ir.model.fields.selection,name:home_market.selection__product_category_url__valid_state__invalid
+msgid "Invalid"
+msgstr ""
+
+#. module: home_market
+#: model:ir.model.fields.selection,name:home_market.selection__product_template__valid_state__invalid
+msgid "Invalid URL"
+msgstr ""
+
+#. module: home_market
+#: model_terms:ir.ui.view,arch_db:home_market.view_product_public_category_form_inherit
+#: model_terms:ir.ui.view,arch_db:home_market.view_product_public_category_tree_inherit
+msgid "Is Publish"
+msgstr ""
+
+#. module: home_market
+#: model:ir.model.fields,field_description:home_market.field_product_category_url__write_uid
+#: model:ir.model.fields,field_description:home_market.field_product_track_prices__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: home_market
+#: model:ir.model.fields,field_description:home_market.field_product_category_url__write_date
+#: model:ir.model.fields,field_description:home_market.field_product_track_prices__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: home_market
+#: model_terms:ir.ui.view,arch_db:home_market.view_product_template_form_inherit
+msgid "List Price"
+msgstr ""
+
+#. module: home_market
+#: model_terms:ir.ui.view,arch_db:home_market.product_template_inherit
+msgid "No price tracking data available for this product."
+msgstr "لا تتوفر بيانات تتبع السعر لهذا المنتج."
+
+#. module: home_market
+#: model_terms:ir.ui.view,arch_db:home_market.view_product_category_url_tree
+#: model_terms:ir.ui.view,arch_db:home_market.view_product_template_form_inherit
+msgid "Open URL"
+msgstr ""
+
+#. module: home_market
+#: model_terms:ir.ui.view,arch_db:home_market.product_template_inherit_hidncart
+msgid "Original product:"
+msgstr ""
+
+#. module: home_market
+#: model:ir.model.fields,field_description:home_market.field_product_product__product_track_ids
+#: model:ir.model.fields,field_description:home_market.field_product_template__product_track_ids
+msgid "Price Tracks"
+msgstr ""
+
+#. module: home_market
+#: model:ir.actions.act_window,name:home_market.action_product
+#: model:ir.model,name:home_market.model_product_template
+#: model:ir.model.fields,field_description:home_market.field_product_track_prices__product_id
+#: model:ir.ui.menu,name:home_market.menu_product
+msgid "Product"
+msgstr "المنتج"
+
+#. module: home_market
+#: model:ir.model,name:home_market.model_product_category_url
+#: model_terms:ir.ui.view,arch_db:home_market.view_product_category_url_form
+msgid "Product Category URL"
+msgstr ""
+
+#. module: home_market
+#: model:ir.actions.act_window,name:home_market.action_product_category_url
+#: model:ir.ui.menu,name:home_market.menu_product_category_url
+#: model_terms:ir.ui.view,arch_db:home_market.view_product_category_url_tree
+msgid "Product Category URLs"
+msgstr ""
+
+#. module: home_market
+#: model_terms:ir.ui.view,arch_db:home_market.product_list
+msgid "Product List"
+msgstr ""
+
+#. module: home_market
+#: model_terms:ir.ui.view,arch_db:home_market.product_template_inherit
+msgid "Product Price Tracking"
+msgstr "تتبع سعر المنتج"
+
+#. module: home_market
+#: model:ir.actions.act_window,name:home_market.action_product_public_category
+#: model:ir.ui.menu,name:home_market.menu_product_public_category
+msgid "Product Public Category"
+msgstr ""
+
+#. module: home_market
+#: model:ir.actions.act_window,name:home_market.action_product_tag
+#: model:ir.ui.menu,name:home_market.menu_product_tag
+msgid "Product Tag"
+msgstr ""
+
+#. module: home_market
+#: model:ir.actions.act_window,name:home_market.action_product_track_prices
+#: model:ir.ui.menu,name:home_market.menu_product_track_prices
+#: model_terms:ir.ui.view,arch_db:home_market.view_product_track_prices_form
+#: model_terms:ir.ui.view,arch_db:home_market.view_product_track_prices_tree
+msgid "Product Track Prices"
+msgstr ""
+
+#. module: home_market
+#: model:ir.model,name:home_market.model_product_track_prices
+msgid "Product Track prices"
+msgstr ""
+
+#. module: home_market
+#: model_terms:ir.ui.view,arch_db:home_market.view_product_template_form_inherit
+msgid "Product URL"
+msgstr ""
+
+#. module: home_market
+#: model:ir.model.fields,field_description:home_market.field_product_product__ProductUrl
+#: model:ir.model.fields,field_description:home_market.field_product_template__ProductUrl
+msgid "Product Url"
+msgstr ""
+
+#. module: home_market
+#: model_terms:ir.ui.view,arch_db:home_market.view_product_template_form_inherit
+msgid "Product id"
+msgstr ""
+
+#. module: home_market
+#: model:ir.ui.menu,name:home_market.menu_products
+msgid "Products"
+msgstr ""
+
+#. module: home_market
+#: model_terms:ir.ui.view,arch_db:home_market.view_product_template_form_inherit
+msgid "Published"
+msgstr ""
+
+#. module: home_market
+#: model_terms:ir.ui.view,arch_db:home_market.view_product_category_url_tree
+msgid "Reset to Waiting"
+msgstr ""
+
+#. module: home_market
+#: model_terms:ir.ui.view,arch_db:home_market.view_product_category_url_form
+#: model_terms:ir.ui.view,arch_db:home_market.view_product_category_url_kanban
+#: model_terms:ir.ui.view,arch_db:home_market.view_product_category_url_tree
+msgid "Run"
+msgstr ""
+
+#. module: home_market
+#: model_terms:ir.ui.view,arch_db:home_market.view_product_category_url_tree
+msgid "Run All"
+msgstr ""
+
+#. module: home_market
+#: model:ir.actions.server,name:home_market.ir_cron_action_run_all_scraper_daily_scheduled_action_1am_ir_actions_server
+msgid "Run Scraper Daily at 1:00 AM"
+msgstr ""
+
+#. module: home_market
+#: model:ir.actions.server,name:home_market.ir_cron_action_run_all_scraper_daily_scheduled_action_1pm_ir_actions_server
+msgid "Run Scraper Daily at 1:00 PM"
+msgstr ""
+
+#. module: home_market
+#: model:ir.model.fields,field_description:home_market.field_product_category_url__run_state
+msgid "Run Status"
+msgstr ""
+
+#. module: home_market
+#: model:ir.model.fields.selection,name:home_market.selection__product_category_url__run_state__running
+msgid "Running"
+msgstr ""
+
+#. module: home_market
+#: model:ir.ui.menu,name:home_market.menu_scheduled_action
+msgid "Scheduled Action"
+msgstr ""
+
+#. module: home_market
+#: model:ir.model.fields,field_description:home_market.field_product_product__ProductUrlShort
+#: model:ir.model.fields,field_description:home_market.field_product_template__ProductUrlShort
+msgid "Short URL"
+msgstr ""
+
+#. module: home_market
+#: model_terms:ir.ui.view,arch_db:home_market.product_template_inherit
+msgid "Showing the last 3 price changes in EGP !"
+msgstr "عرض آخر 3 تغييرات في الأسعار بالجنيه المصري!"
+
+#. module: home_market
+#: model:ir.model.fields,field_description:home_market.field_product_category_url__tag_id
+#: model:ir.model.fields,field_description:home_market.field_product_track_prices__tag_id
+msgid "Tag"
+msgstr ""
+
+#. module: home_market
+#: model:ir.model.fields,field_description:home_market.field_product_track_prices__track_compare_prices
+msgid "Track Compare Price"
+msgstr ""
+
+#. module: home_market
+#: model:ir.model.fields,field_description:home_market.field_product_track_prices__track_date
+msgid "Track Date"
+msgstr "التاريخ"
+
+#. module: home_market
+#: model:ir.model.fields,field_description:home_market.field_product_track_prices__track_discount
+msgid "Track Discount"
+msgstr ""
+
+#. module: home_market
+#: model:ir.model.fields,field_description:home_market.field_product_track_prices__track_prices
+msgid "Track Prices"
+msgstr "السعر"
+
+#. module: home_market
+#: model:ir.model.fields,field_description:home_market.field_product_track_prices__updated_compare_price
+msgid "Updated Compare Price"
+msgstr ""
+
+#. module: home_market
+#: model:ir.model.fields,field_description:home_market.field_product_track_prices__updated_discount
+msgid "Updated Discount"
+msgstr ""
+
+#. module: home_market
+#: model:ir.model.fields,field_description:home_market.field_product_track_prices__updated_price
+msgid "Updated Price"
+msgstr "التاريخ"
+
+#. module: home_market
+#: model_terms:ir.ui.view,arch_db:home_market.product_template_inherit
+msgid "Updated Price to:"
+msgstr "تعديل السعر الي :"
+
+#. module: home_market
+#: model:ir.model.fields.selection,name:home_market.selection__product_category_url__valid_state__valid
+#: model_terms:ir.ui.view,arch_db:home_market.view_product_category_url_form
+#: model_terms:ir.ui.view,arch_db:home_market.view_product_category_url_kanban
+#: model_terms:ir.ui.view,arch_db:home_market.view_product_category_url_tree
+msgid "Valid"
+msgstr ""
+
+#. module: home_market
+#: model_terms:ir.ui.view,arch_db:home_market.view_product_category_url_tree
+msgid "Valid All"
+msgstr ""
+
+#. module: home_market
+#: model:ir.model.fields,field_description:home_market.field_product_category_url__valid_state
+#: model:ir.model.fields,field_description:home_market.field_product_product__valid_state
+#: model:ir.model.fields,field_description:home_market.field_product_template__valid_state
+msgid "Valid Status"
+msgstr ""
+
+#. module: home_market
+#: model:ir.model.fields.selection,name:home_market.selection__product_template__valid_state__valid
+#: model_terms:ir.ui.view,arch_db:home_market.view_product_template_form_inherit
+msgid "Valid URL"
+msgstr ""
+
+#. module: home_market
+#: model_terms:ir.ui.view,arch_db:home_market.product_template_inherit
+msgid "Visit the original product for more details and to complete the Buy...!"
+msgstr "قم بزيارة المنتج الأصلي للحصول على مزيد من التفاصيل وإكمال عملية الشراء...!"
+
+
+#. module: home_market
+#: model:ir.model.fields.selection,name:home_market.selection__product_category_url__run_state__draft
+#: model:ir.model.fields.selection,name:home_market.selection__product_category_url__valid_state__draft
+#: model:ir.model.fields.selection,name:home_market.selection__product_template__valid_state__draft
+msgid "Waiting"
+msgstr ""
+
+#. module: home_market
+#: model:ir.model,name:home_market.model_product_public_category
+msgid "Website Product Category"
+msgstr "فئة منتج الموقع الإلكتروني "
+
+#. module: home_market
+#: model:ir.actions.server,name:home_market.action_action_run_all_scraper_daily_scheduled_action
+msgid "action run_all_scraper Daily Scheduled Action Server"
+msgstr ""
+
+#. module: home_market
+#: model:ir.model.fields,field_description:home_market.field_product_public_category__is_publish
+msgid "is Publish"
+msgstr ""
+
+#. module: home_market
+#: model_terms:ir.ui.view,arch_db:home_market.product_template_inherit
+#: model_terms:ir.ui.view,arch_db:home_market.product_template_web_inherit
+msgid "off :"
+msgstr "الخصم"

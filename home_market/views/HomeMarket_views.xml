@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_product_template_url_tree" model="ir.ui.view">
+            <field name="name">product.template.product.tree</field>
+            <field name="model">product.template</field>
+            <field name="arch" type="xml">
+                <tree string="Product template URLs" multi_edit="1" sample="1">
+                    <header>
+                        <button string="Valid Product All" name="action_validate_template_url_All" type="object" class="oe_highlight" icon="fa-chain"/>
+                        <button string="Reset to Waiting" name="action_reset_to_waiting" type="object" class="oe_highlight" icon="fa-undo"/>
+                        <button string="Sort Products All" name="sort_products" type="object" class="oe_highlight" icon="fa-chain"/>
+                        <button string="regenerate Image" name="regenerate_image" type="object" class="oe_highlight" icon="fa-chain"/>
+
+
+                    </header>
+                    <!-- Add the valid_state field with badge and decoration -->
+                    <field name="id" string="id"  width="5"/>
+                    <field name="website_sequence" string="Website Sequence" width="5"/>
+                    <field name="name" string="Product" width="20"/>
+                    <field name="ProductUrl" string="Product URL" width="100" optional="hide"/>
+                    <field name="list_price" string="Price"/>
+                    <field name="compare_list_price" string="Compare Price"/>
+                    <field name="Discount" string="Discount (%)"/>
+                    <field name="product_tag_ids" string="Campany"/>
+                    <field name="public_categ_ids" string="Categories"/>
+                    <field name="website_ribbon_id" string="Ribbon"/>
+                    <field name="is_published" string="Is Published" widget="boolean_toggle"/>
+
+    
+                    
+                    <field name="valid_state" widget="badge"
+                        decoration-info="valid_state == 'draft'"
+                        decoration-success="valid_state == 'Valid'"
+                        decoration-danger="valid_state == 'Invalid'" />
+                    <button string="Open URL" name="open_url" type="object" class="oe_highlight" icon="fa-chain-broken"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="view_product_template_form_inherit" model="ir.ui.view">
+            <field name="name">product.template.form.inherit</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_only_form_view"/>
+            <field name="arch" type="xml">
+               <!-- Insert header buttons in the form view header -->
+                <xpath expr="//form/header" position="inside">
+                    <button string="Valid URL" name="action_validate_template_url_All" type="object" class="oe_highlight" icon="fa-chain"/>
+                    <button string="Open URL" name="open_url" type="object" class="oe_highlight" icon="fa-chain-broken"/>
+                </xpath>
+
+                <xpath expr="//notebook" position="inside">
+                    <page string="Home Market">
+                    <group>
+                        <field name="valid_state" widget="badge" decoration-info="valid_state == 'draft'" decoration-success="valid_state == 'Valid'" decoration-danger="valid_state == 'Invalid'" width="100"/>
+                        <field name="list_price" string="List Price"  on_change="1" widget="monetary" options="{'currency_field': 'currency_id', 'field_digits': True}" />
+                        <field name="compare_list_price" string="Compare Price" on_change="1" widget="monetary" options="{'currency_field': 'currency_id', 'field_digits': True}" />
+
+                        <field name="Discount" readonly="true" widget="badge">
+                            <label for="Discount">Discount (%)</label>  # Added label
+                        </field>
+                        <field name="ProductUrl">
+                            <label for="ProductUrl">Product URL</label>  # Added label
+                        </field>
+                        <field name="GroupUrl">
+                            <label for="GroupUrl">Group URL</label>  # Added label
+                        </field>
+                        <field name="is_published" widget="boolean_toggle">
+                            <label for="is_published">Published</label>  # Added label
+                        </field>
+                        <field name="product_tag_ids" widget="many2many_tags" string="Company Tges" can_create="True" can_write="True" field_id="product_tag_ids_0"/>
+                        <field name="public_categ_ids" widget="many2many_tags" string="Categories" can_create="True" can_write="True" field_id="public_categ_ids_0"/>
+                        <field name="id">
+                            <label for="id">Product id</label>  # Added label
+                        </field>
+                                        
+                    </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+       <record id="action_product" model="ir.actions.act_window">
+            <field name="name">Product</field>
+            <field name="res_model">product.template</field>
+            <field name="view_mode">kanban,tree,form,activity</field>
+            <field name="view_id" ref="view_product_template_url_tree"/>
+        </record>
+
+
+         <!-- Action for Product tag -->
+        <record id="action_product_tag" model="ir.actions.act_window">
+            <field name="name">Product Tag</field>
+            <field name="res_model">product.tag</field>
+            <field name="view_mode">tree,kanban,form</field>
+        </record>
+        
+    </data>
+</odoo>

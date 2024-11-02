@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<!-- <button type="button" class="btn btn-primary o_list_button_add" data-hotkey="c" data-bounce-button=""> New </button> -->
+
+    <record id="view_product_category_url_tree" model="ir.ui.view">
+        <field name="name">product.category.url.tree</field>
+        <field name="model">product.category.url</field>
+        <field name="arch" type="xml">
+         <!-- Insert header buttons in the form view header -->
+                
+            <tree string="Product Category URLs"  multi_edit="1" sample="1" decoration-bf="1"  decoration-info="valid_state == 'draft'" decoration-success="valid_state == 'Valid'" decoration-danger="valid_state == 'Invalid'">
+            <!-- default_order="tag_id asc" -->
+            
+                <header>
+                    <button string="Valid All" name="action_validate_url" type="object" class="oe_highlight" icon="fa-chain"/>
+                    <button string="Run All" name="action_run_scraper" type="object" class="oe_highlight" icon="fa-play"/>
+                    <button string="Reset to Waiting" name="action_reset_to_waiting" type="object" class="oe_highlight" icon="fa-undo"/>
+                    
+                </header>
+                <field name="category_id" width="100" />
+                <field name="tag_id"/>
+                <field name="category_url" width="150" optional="hide"/>
+                <field name="id"/>
+                <field name="page_number"/>
+                <field name="active" widget="boolean_toggle"/>
+                <field name="valid_state" widget="badge"  decoration-info="valid_state == 'draft'" decoration-success="valid_state == 'Valid'" decoration-danger="valid_state == 'Invalid'" />
+                <field name="run_state" widget="badge"   decoration-info="run_state == 'draft'" decoration-success="run_state == 'Done'" decoration-danger="run_state == 'Error'" decoration-warning="run_state == 'Running'" width="100"/>
+                <button string="Valid" name="action_validate_url" type="object" class="oe_highlight" icon="fa-chain" />
+                <button string="Run" name="action_run_scraper" type="object" class="oe_highlight" icon="fa-play"/>
+                <button string="Open URL" name="open_category_url" type="object" class="oe_highlight" icon="fa-chain-broken"/>
+                <field name="batch_schedule"/>
+                
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_product_category_url_form" model="ir.ui.view">
+        <field name="name">product.category.url.form</field>
+        <field name="model">product.category.url</field>
+        <field name="arch" type="xml">
+            <form string="Product Category URL">
+                <sheet>
+                    <header>
+                        <button string="Valid" name="action_validate_url" type="object" class="oe_highlight" icon="fa-chain"/>
+                        <button string="Run" name="action_run_scraper" type="object" class="oe_highlight" icon="fa-play" />
+                        <button string="Open URL" name="open_category_url" type="object" class="oe_highlight" icon="fa-chain-broken"/>
+                    </header>
+                        <group>
+                            <field name="category_id"/>
+                            <field name="tag_id"/>
+                             <field name="batch_schedule"/>
+                            <field name="category_url"/>
+                            <field name="id"/>
+                            <field name="page_number"/>
+                            <field name="active" widget="boolean_toggle"/>
+                            <field name="valid_state" decoration-info="valid_state == 'draft'" decoration-success="valid_state == 'Valid'" decoration-danger="valid_state == 'Invalid'" width="100"/>
+                            <field name="run_state" decoration-info="run_state == 'draft'" decoration-success="run_state == 'Done'" decoration-danger="run_state == 'Error'" decoration-warning="run_state == 'Running'" width="100"/>
+                        </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="view_product_category_url_search" model="ir.ui.view">
+        <field name="name">product.category.url.search</field>
+        <field name="model">product.category.url</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="category_id"/>
+                <field name="tag_id"/>
+                <field name="batch_schedule"/>
+                <field name="active"/>
+                <field name="valid_state"/>
+                <field name="run_state"/>
+
+
+            </search>
+        </field>
+    </record>
+         <!-- Kanban View -->
+    <record id="view_product_category_url_kanban" model="ir.ui.view">
+        <field name="name">product.category.url.kanban</field>
+        <field name="model">product.category.url</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_small_column" >
+            <!-- default_order="tag_id asc" -->
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="o_kanban_record_title">
+                                 <field name="tag_id"/>
+                            </div>
+                            <div>
+                                <field name="category_id"/>
+                                <field name="serial_number"/>
+                                <field name="batch_schedule"/>
+                                <field name="page_number"/>
+                            </div>
+                              <div>
+                                <field name="valid_state" decoration-info="valid_state == 'draft'" decoration-success="valid_state == 'Valid'" decoration-danger="valid_state == 'Invalid'" width="100"/>
+                                <field name="run_state" decoration-info="run_state == 'draft'" decoration-success="run_state == 'Done'" decoration-danger="run_state == 'Error'" decoration-warning="run_state == 'Running'" width="100"/>
+                            </div>
+                            <div class="oe_kanban_buttons">
+                                <button string="Valid" name="action_validate_url" type="object" class="oe_highlight" icon="fa-chain"/>
+                            </div>
+                                <field name="active" widget="boolean_toggle"/>
+                            <div class="oe_kanban_buttons1">
+                                <button type="object" name="action_run_scraper" string="Run" class="btn btn-primary oe_highlight"/>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+                <header>
+                    <button string="Valid" name="action_validate_url" type="object" class="oe_highlight" icon="fa-chain"/>
+                    <button type="object" name="action_run_scraper" string="Run" class="btn btn-primary oe_highlight"/>
+                </header>
+            </kanban>
+        </field>
+    </record>
+        <!-- smart_button -->
+    <!-- <record id="fleet_vehicle_smart_button" model="ir.ui.view">
+            <field name="name">fleet.view.buttons</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form" />
+            <field name="arch" type="xml">
+                <div name="button_box" position="inside">
+                    <button class="oe_stat_button" type="object" name="get_Products"
+                        icon="fa-car">
+                        <field string="Products" name="ProductsCount" widget="statinfo"/>
+                    </button>
+                </div>
+            </field>
+    </record> -->
+
+
+     <!-- Action to open the form view -->
+    <record id="action_product_category_url" model="ir.actions.act_window">
+        <field name="name">Product Category URLs</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">product.category.url</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="view_id" ref="view_product_category_url_tree"/>
+        <field name="search_view_id" ref="view_product_category_url_search"/>
+    </record>
+
+
+    <!-- Menu Item -->
+    <!-- <menuitem id="menu_product_category_url" 
+     parent="website_sale.menu_catalog" 
+    action="action_product_category_url" sequence="2"/> -->
+    
+</odoo>

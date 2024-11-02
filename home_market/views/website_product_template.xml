@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+    
+
+       <template id="product_template_web_inherit" inherit_id="website_sale.products_item">  
+            <!-- Add custom styling to the parent element of the product name link -->
+            <xpath expr="//*[hasclass('o_wsale_products_item_title')]" position="attributes">
+                <attribute name="style">text-align: center !important;</attribute>
+            </xpath>
+
+            <!-- Add custom styling to the product name link -->
+            <xpath expr="//*[hasclass('o_wsale_products_item_title')]/a" position="attributes">
+                <attribute name="style">font-family: 'Arial', sans-serif; font-size: 18px; color: #45818E !important;</attribute>
+            </xpath>
+
+            <!-- Add the Discount information after the product title -->
+            <xpath expr="//*[hasclass('o_wsale_products_item_title')]" position="after">
+                <t t-if="product.Discount">
+                    <div class="Discount-info" style="color: #f48080; font-size: 15px; padding: 5px; font-weight: bold;">
+                        off : <t t-esc="product.Discount"/>%
+                    </div>
+                </t>
+            </xpath>
+
+
+            <!-- Loop through and display all categories after the product title -->
+            <xpath expr="//*[hasclass('o_wsale_products_item_title')]" position="after">
+                <t t-if="product.public_categ_ids">
+                    <div class="category-info" style="color: #000000; font-size: 14px; padding: 3px;">
+                        <!-- Loop through all categories of the product -->
+                        <t t-foreach="product.public_categ_ids" t-as="category">
+                            <!-- Display each category name as a clickable link to the category page -->
+                            <a t-att-href="'/shop/category/' + str(category.id)" style="text-decoration: underline;" target="_blank">
+                                <t t-esc="category.name"/>
+                            </a>
+                            <br/>
+                        </t>
+                    </div>
+                </t>
+            </xpath>  
+
+            <!-- Try a more specific path if necessary -->
+           <!-- <xpath expr="//div[hasclass('o_wsale_product_btn')]" position="inside">
+               <attribute name="class">d-inline-block btn-outline-primary o_add_compare</attribute>
+           </xpath> -->
+
+<!-- <xpath expr="//div[hasclass('o_wsale_product_btn')]" position="inside"> -->
+            <!-- <xpath expr="//head" position="inside"> -->
+           <!-- Add custom CSS -->
+           
+               
+                <!-- <xpath expr="//*[hasclass('o_wsale_products_item_title')]" position="attributes">
+                                <attribute name="style">text-align: center !important;</attribute>
+                            </xpath> -->
+
+                             <!-- Add custom CSS -->
+            <!-- Add custom CSS inline -->
+            <xpath expr="//div[hasclass('o_wsale_product_btn')]" position="before">
+                <!-- <t t-raw="True"> -->
+                    <style>
+                        @media (min-width: 200px) {
+                            .d-md-inline-block {
+                                display: inline-block !important;
+                            }
+                        }
+                    </style>
+            </xpath>
+
+            <xpath expr="//div[hasclass('o_wsale_product_btn')]" position="inside">
+                <!-- <t t-raw="True"> -->
+                    <style>
+                        @media (min-width: 200px) {
+                            .d-md-block {
+                                display: inline-block !important;
+                            }
+                        }
+                    </style>
+             </xpath>
+
+
+        </template>
+        
+
+                                                             <!-- in  one card  -->
+                                                              <!-- //div[@id='product_details'] inside-->
+
+        <!-- Inherit the main product template to add additional fields like Discount and Product URL -->
+        <template id="product_template_inherit" inherit_id="website_sale.product">
+
+        <!-- Add the Discount information after the first input field -->
+            <xpath expr="//div[@id='product_details']" position="after">
+                    <div class="product-related-info" style="padding-bottom: 5px;">
+                        <label style="color: #4A7B8C; font-size: 23px;">Products you may also like</label>
+                    </div>
+            </xpath>
+
+
+
+            <!-- Add the Discount information after the first input field -->
+            <xpath expr="/t[1]/t[2]/t[4]/div[1]/section[1]/div[2]/div[2]/form[1]/input[1]" position="after">
+                <t t-if="product.Discount">
+                    <div class="Discount-info" style="color: white; font-size: 15px; padding: 5px; display: inline-block; background-color:#f48080;border-radius: 5px; font-weight: bold;">
+                         off : <t t-esc="product.Discount"/>%
+                    </div>
+                </t>
+            </xpath>
+
+            <!-- Add the Product URL information -->
+            <xpath expr="/t[1]/t[2]/t[4]/div[1]/section[1]/div[2]/div[2]/form[1]/div[1]/p[1]" position="after">
+                <t t-if="product.ProductUrl">
+                    <div class="product-url-info" style="padding-bottom: 10px;">
+                        <label style="color: #45818e; font-size: 17;">Visit the original product for more details and to complete the Buy...!</label>
+                        <a t-att-href="product.ProductUrl" style="color: blue; text-decoration: underline;font-size: 17px;" target="_blank">
+                            <t t-esc="product.ProductUrlShort"/>
+                        </a>
+                    </div>
+                </t>
+            </xpath>
+                    <!-- //div[@id='product_details'] inside-->
+                    <!-- <head>
+                        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                    </head> -->
+           <xpath expr="/t[1]/t[2]/t[4]/div[1]/section[1]/div[2]/div[2]/form[1]/div[1]/p[1]" position="before">
+
+
+                <div id="track_price_section">
+                    <h3 style="color: #76A5AF; font-weight: bold;">Product Price Tracking</h3>
+                    <t t-if="product.product_track_ids">
+                        <p style="color: #76A5AF;  margin-bottom: 3px;">Showing the last 3 price changes in EGP !</p>
+
+                        <!-- Table for Price Tracking Data -->
+                        <table class="table table-striped table-bordered" style="width: 90%; border-collapse: collapse;">
+                            <thead style="background-color: #76A5AF; color: #fff;">
+                                <tr>
+                                    <th style="border: 1px solid #ddd; padding: 2px; text-align: center;font-weight: normal;">Date</th>
+                                    <th style="border: 1px solid #ddd; padding: 2px; text-align: center;font-weight: normal;">From Price</th>
+                                    <th style="border: 1px solid #ddd; padding: 2px; text-align: center;font-weight: normal;">Updated Price to:</th>
+                                    <th style="border: 1px solid #ddd; padding: 2px; text-align: center;font-weight: normal;">Difference Price</th>
+                                </tr>
+                            </thead>
+                            <tbody style="color: #333;">
+
+                                <t t-foreach="product.product_track_ids.sorted(key=lambda r: r.track_date, reverse=True)[:3]" t-as="track">
+
+                                    <tr t-if="track.difference_price != 0">
+                                        <td style="border: 1px solid #ddd; padding: 2px; text-align: center;"><span t-esc="track.track_date"/></td>
+                                        <td style="border: 1px solid #ddd; padding: 2px; text-align: center;"><span t-esc="'{:,}'.format(int(track.track_prices))"/></td>
+                                        <td style="border: 1px solid #ddd; padding: 2px; text-align: center;"><span t-esc="'{:,}'.format(int(track.updated_price))"/></td>
+
+                                        <td style="border: 1px solid #ddd; padding: 2px; text-align: center;">
+                                            <t t-set="style" t-value="track.difference_price > 0 and 'color: green' or 'color: red'"/>
+                                            <span t-esc="'{:,}'.format(int(track.difference_price))" t-att-style="style"/>
+                                        </td>
+                                        
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+
+                        <!-- Canvas for Line Chart -->
+                        <div style="width: 80% ; margin-bottom: 3px auto;">
+                            <canvas id="priceChangeChart"></canvas>
+                        </div>
+
+                        <!-- JavaScript to Render the Chart -->
+                        <script>
+                            var ctx = document.getElementById('priceChangeChart').getContext('2d');
+                            var chartData = {
+                                labels: [],
+                                datasets: [{
+                                    label: 'Difference Price',
+                                    data: [],
+                                    borderColor: '#76A5AF',
+                                    borderWidth: 2,
+                                    fill: false
+                                }]
+                            };
+
+                            // Prepare data for the chart
+
+                                 <t t-foreach="product.product_track_ids.sorted(key=lambda r: r.track_date, reverse=True)[:3]" t-as="track">
+                                    <t t-if="track.difference_price != 0">
+                                        chartData.labels.push("<t t-esc='track.track_date'/>");
+                                        chartData.datasets[0].data.push(<t t-esc='track.difference_price'/>);
+                                    </t>
+                                </t>
+                            <!-- console.log(chartData);  // Check what data is being passed to the chart -->
+
+                            var priceChangeChart = new Chart(ctx, {
+                                type: 'line',
+                                data: chartData,
+                                options: {
+                                    responsive: true,
+                                    maintainAspectRatio: false,
+                                    scales: {
+                                        x: {
+                                            title: {
+                                                display: true,
+                                                text: 'Date',
+                                                font: {
+                                                    size: 14,
+                                                    family: 'Arial'
+                                                }
+                                            },
+                                            grid: {
+                                                color: '#ddd',
+                                            }
+                                        },
+                                        y: {
+                                            title: {
+                                                display: true,
+                                                text: 'Difference',
+                                                font: {
+                                                    size: 14,
+                                                    family: 'Arial'
+                                                }
+                                            },
+                                            grid: {
+                                                color: '#ddd',
+                                            }
+                                        }
+                                    }
+                                }
+                            });
+                        </script>
+                    </t>
+                    <t t-if="not product.product_track_ids">
+                        <p style="color: #333; font-family: 'Arial', sans-serif;">No price tracking data available for this product.</p>
+                    </t>
+                </div>
+            </xpath>
+
+                 <xpath expr="//div[@id='o_wsale_cta_wrapper']" position="after">
+                <!-- <t t-raw="True"> -->
+                    <style>
+                        @media (min-width: 200px) {
+                            .d-md-block {
+                                display: inline-block !important;
+                            }
+                        }
+                    </style>
+             </xpath>
+
+
+       
+        </template>
+
+
+        <template id="product_template_inherit_hidncart" inherit_id="website_sale_comparison.product_compare">
+            <xpath expr="//form[hasclass('o_add_cart_form_compare')]" position="attributes">
+                <attribute name="style">display: none;</attribute>
+            </xpath>
+
+  <!-- <xpath expr="//div[@id='product_summary']" position="inside"> -->
+<!-- product_summary -->
+             <!-- Add the Product URL information -->
+            <xpath expr="//div[hasclass('product_summary')]" position="after">
+                <t t-if="product.ProductUrl">
+                    <div class="product-url-info" style="padding-bottom: 5px;">
+                        <label style="color: #45818e; font-size: 13px;"  >Original product:</label>
+                        <a t-att-href="product.ProductUrl" style="color: blue; text-decoration: underline;font-size: 13px;" target="_blank">
+                            <t t-esc="product.ProductUrlShort"/>
+                        </a>
+                    </div>
+                </t>
+            </xpath>
+        </template>
+
+
+
+           
+
+    </data>
+</odoo>

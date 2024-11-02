@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_home_market,access_home_market,model_product_template,base.group_user,1,1,1,1
+access_product_category_url,access_product_category_url,model_product_category_url,base.group_user,1,1,1,1
+access_scheduled_action_scraper,access_scheduled_action_scraper,base.model_ir_cron,base.group_user,1,1,1,1
+access_product_public_category,access_product_public_category,model_product_public_category,base.group_user,1,1,1,1
+access_ir_cron,access.ir.cron,base.model_ir_cron,,1,1,1,1
+access_product_track_prices,access_product_track_prices,model_product_track_prices,,1,1,1,1
+
+

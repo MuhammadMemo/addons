@@ -1,0 +1,71 @@
+<odoo>
+    <data>
+        <!-- Top-level menu item for Home Market -->
+
+        <menuitem id="menu_products" name="Products"/>
+
+        <menuitem id="menu_home_market_root"
+                  name="Home Market"
+                  sequence="10"/> <!-- Adjust sequence as needed -->
+
+         <!-- Sub-menu item for Product Category URLs -->
+        <menuitem id="menu_product_category_url"
+                  name="Product Category URLs"
+                  parent="menu_products"
+                  action="action_product_category_url"
+                  sequence="10"/>
+
+        <!-- Sub-menu item for Products -->
+        <menuitem id="menu_products"
+                  name="Products"
+                  parent="menu_home_market_root"
+                  sequence="20"/>
+
+        <!-- Sub-menu item for Product -->
+        <menuitem id="menu_product"
+                  name="Product"
+                  parent="menu_products"
+                  action="action_product"
+                  sequence="20"/>
+
+       
+                  
+         <!-- Sub-menu item for Product Track Prices -->
+        <menuitem id="menu_product_track_prices"
+                  name="Product Track Prices"
+                  parent="menu_products"
+                  action="action_product_track_prices"
+                  sequence="30"/>
+
+         <!-- Sub-menu item for Product Tag -->
+        <menuitem id="menu_product_tag"
+                  name="Product Tag"
+                  parent="menu_products"
+                  action="action_product_tag"
+                  sequence="40"/>
+        
+         <!-- Sub-menu item for Scheduled Action -->
+        <menuitem id="menu_product_public_category"
+                  name="Product Public Category"
+                  parent="menu_products"
+                  action="action_product_public_category"
+                  sequence="50"/>
+
+                 <!-- Sub-menu item for Scheduled Action -->
+
+        <menuitem id="menu_scheduled_action"
+                name="Scheduled Action"
+                parent="menu_products"
+                action="action_run"
+                sequence="60"/>
+
+        <!-- Sub-menu item for Custom Scraper -->
+        <!-- <menuitem id="menu_custom_scraper"
+                  name="Custom Scraper"
+                  parent="menu_products"
+                  action="action_custom_scraper"
+                  sequence="70"/> -->
+
+      
+    </data>
+</odoo>

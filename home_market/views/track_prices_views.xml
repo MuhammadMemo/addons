@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   
+<!-- Tree View -->
+    <record id="view_product_track_prices_tree" model="ir.ui.view">
+        <field name="name">product.track.prices.tree</field>
+        <field name="model">product.track.prices</field>
+        <field name="arch" type="xml">
+            <tree string="Product Track Prices">
+                <field name="category_id"/>
+                <field name="tag_id"/>
+                <field name="product_id"/>
+                
+                <field name="track_prices"/>
+                <field name="track_compare_prices"/>
+                <field name="track_discount"/>
+                <field name="track_date"/>
+
+                <field name="updated_price"/>
+                <field name="updated_compare_price"/>
+                <field name="updated_discount"/>
+                <field name="difference_price"/>
+                <field name="difference_compare_price"/>
+                <field name="difference_discount"/>
+
+
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_product_track_prices_form" model="ir.ui.view">
+        <field name="name">product.track.prices.form</field>
+        <field name="model">product.track.prices</field>
+        <field name="arch" type="xml">
+            <form string="Product Track Prices">
+                <sheet>
+                    <group>
+                        <field name="category_id"/>
+                        <field name="tag_id"/>
+                        <field name="product_id"/>
+                        <field name="track_prices"/>
+                        <field name="track_compare_prices"/>
+                        <field name="track_discount"/>
+                        <field name="track_date"/>
+                        <field name="updated_price"/>
+                        <field name="updated_compare_price"/>
+                        <field name="updated_discount"/>
+                        <field name="difference_price"/>
+                        <field name="difference_compare_price"/>
+                        <field name="difference_discount"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="view_product_track_prices_search" model="ir.ui.view">
+        <field name="name">product.track.prices.search</field>
+        <field name="model">product.track.prices</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="category_id"/>
+                <field name="tag_id"/>
+                <field name="product_id"/>
+                <field name="track_prices"/>
+                <field name="track_compare_prices"/>
+                <field name="track_discount"/>
+                <field name="track_date"/>
+                <field name="updated_price"/>
+                <field name="updated_compare_price"/>
+                <field name="updated_discount"/>
+                <field name="difference_price"/>
+                <field name="difference_compare_price"/>
+                <field name="difference_discount"/>
+            </search>
+        </field>
+    </record>
+
+     <!-- Action to open the form view -->
+    <record id="action_product_track_prices" model="ir.actions.act_window">
+        <field name="name">Product Track Prices</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">product.track.prices</field>
+        <field name="view_mode">tree,form,activity</field>
+        <field name="view_id" ref="view_product_track_prices_tree"/>
+        <field name="search_view_id" ref="view_product_track_prices_search"/>
+    </record>
+
+    
+</odoo>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+ <!-- Tree view inheritance -->
+    <record id="view_product_public_category_tree_inherit" model="ir.ui.view">
+        <field name="name">product.public.category.tree.inherit</field>
+        <field name="model">product.public.category</field>
+        <field name="inherit_id" ref="website_sale.product_public_category_tree_view"/> <!-- Ensure this ID is correct -->
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+                <field name="is_publish" string="Is Publish" widget="boolean_toggle"/>
+                <field name="description" string="Description" />
+                
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Form view inheritance -->
+    <record id="view_product_public_category_form_inherit" model="ir.ui.view">
+        <field name="name">product.public.category.form.inherit</field>
+        <field name="model">product.public.category</field>
+        <field name="inherit_id" ref="website_sale.product_public_category_form_view"/> <!-- Ensure this reference is correct -->
+        <field name="arch" type="xml">
+            <xpath expr="//form/sheet/div/group/field[@name='parent_id']" position="after">
+                <field name="is_publish" string="Is Publish" widget="boolean_toggle"/>
+                <field name="description" string="Description"/>
+            </xpath>
+        </field>
+    </record>
+
+     <!-- Search View -->
+    <record id="view_product_public_category_search" model="ir.ui.view">
+        <field name="name">product.public.category.search</field>
+        <field name="model">product.public.category</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="is_publish" />
+                <field name="description" string="Description" />
+            </search>
+        </field>
+    </record>
+
+    <!-- Action to open the view -->
+    <record id="action_product_public_category" model="ir.actions.act_window">
+        <field name="name">Product Public Category</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">product.public.category</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+
+
+</odoo>
