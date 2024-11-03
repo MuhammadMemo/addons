@@ -502,9 +502,9 @@ class ProductCategoryUrl(models.Model):
             # Normalize DataFrame product names for comparison (convert to lowercase and strip spaces)
             normalized_df_products = [name.strip().lower() for name in df_products]
 
+
             url_products = self.env['product.template'].search([
-                                                            ('GroupUrl', '=', u),
-                                                            ('is_published','=', True)])  # Fetch all matching products
+                                                            ('GroupUrl', '=', u)])  # Fetch all matching products
                                                        
             for product in url_products:
                 product_name = product.name.strip().lower()  # Normalize product name from Odoo
