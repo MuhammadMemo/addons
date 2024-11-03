@@ -48,11 +48,16 @@ class Chic_Homz_Company:
                 current_price_tag = c.find("span", class_="price-item price-item--sale price-item--last")
                 if current_price_tag:
                     price.append(current_price_tag.text.strip())
+                else :
+                    price.append(0)
 
                 # Extract the compare list price (strikethrough price)
                 compare_price_tag = c.find("s", class_="price-item price-item--regular")
                 if compare_price_tag:
                     compare_list_price.append(compare_price_tag.text.strip()) 
+                else :
+                    compare_list_price.append(0)
+                
                     
                 
             for image_section in product_section.find_all("div", class_="media media--transparent media--hover-effect"):

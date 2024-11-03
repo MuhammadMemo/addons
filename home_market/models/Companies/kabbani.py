@@ -32,13 +32,22 @@ class Kabbani_Company:
                 if product.find("a", class_='grid-view-item__title') else None
 
             # Extract prices
+           
+            
+                    # Try to find the price with the class 'product-price__sale' first
             price_tag = product.find("span", class_='product-price__sale')
+            if not price_tag:
+                # If not found, try with the alternative class 'product-price__price'
+                price_tag = product.find("span", class_='product-price__price')
             price_value = price_tag.text.strip() if price_tag else None
 
-            compare_list_price_tag = \
-                product.find("s", class_='product-price__price regular')
-            compare_list_price_value = compare_list_price_tag.text.strip()\
-                .strip() if compare_list_price_tag else None
+            # Try to find the compare price with the class 'product-price__price regular' first
+            compare_list_price_tag = product.find("s", class_='product-price__price regular')
+            if not compare_list_price_tag:
+                # If not found, try with the alternative class 'product-price__price'
+                compare_list_price_tag = product.find("s", class_='product-price__price')
+            compare_list_price_value = compare_list_price_tag.text.strip() if compare_list_price_tag else None
+
 
             # Extract image URL from data-bgset
             image_url = None

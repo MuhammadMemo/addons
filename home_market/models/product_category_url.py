@@ -17,6 +17,8 @@ import random
 from urllib.request import urlopen
 import json
 import itertools
+# import cv2
+# import numpy as np
 
 
 from requests.adapters import HTTPAdapter
@@ -209,9 +211,37 @@ class ProductCategoryUrl(models.Model):
 
         # Drop the 'ProductID' column if not needed
         df.drop('ProductID', axis=1, inplace=True)
+        
+        # # Ensure that NaN values are handled
+        # if df.isna(price):
+        #     price = 0.0
+        # if df.isna(compare_price):
+        #     compare_price = 0.0
+        # if df.isna(discount) or discount < 0:
+        #     discount = 0.0
+        # if df.compare_price >= price:
+        #     compare_price = 0.0
+        
+        #         # Ensure that NaN values are handled
+        # df['Price'] = df['Price'].fillna(0.0)  # Replace NaN in 'price' with 0.0
+        # df['CompareListPrice'] = df['CompareListPrice'].fillna(0.0)  # Replace NaN in 'compare_price' with 0.0
+
+
+        # # Set compare_price to 0.0 if it is greater than or equal to price
+        # df.loc[df['CompareListPrice'] >= df['Price'], 'CompareListPrice'] = 0.0
 
         # Clean up product names
         # df['Products'] = df['Products'].str.replace('رئيسية', '', regex=True).str.replace('وسط', '', regex=True).str.replace('جوزى', '', regex=True).str.strip()
+        
+        # Set default values for NaN and apply conditional logic
+        df['Price'] = df['Price'].fillna(0.0)  # Replace NaN in price with 0.0
+        df['CompareListPrice'] = df['CompareListPrice'].fillna(0.0)  # Replace NaN in compare_price with 0.0
+
+        # Set discount to 0.0 if it's NaN or negative
+        # df['discount'] = df['discount'].apply(lambda x: 0.0 if pd.isna(x) or x < 0 else x)
+
+        # Set compare_price to 0.0 where it is less than or equal to price
+        df['CompareListPrice'] = df.apply(lambda x: 0.0 if x['CompareListPrice'] < x['Price'] else x['CompareListPrice'], axis=1)
 
         _logger.info('Data has been cleaned .....')
 
@@ -231,6 +261,9 @@ class ProductCategoryUrl(models.Model):
         df['Price'] = df['Price'].round(2)
         df['CompareListPrice'] = df['CompareListPrice'].round(2)
         df['Discount'] = df['Discount'].round(2)
+        # df['Discount'] = df['Discount'].fillna(0.0).clip(lower=0.0)  # Replace NaN in 'discount' with 0.0 and clip negative values
+        # Set discount to 0.0 if it's NaN or negative
+        df['Discount'] = df['Discount'].apply(lambda x: 0.0 if pd.isna(x) or x < 0 else x)
         
         # Log the dataframe for debugging
         _logger.info('Calculated Discount .....')
@@ -432,13 +465,16 @@ class ProductCategoryUrl(models.Model):
             ribbon = row['ribbon']
             GroupUrl = row['GroupUrl']
 
-            # Ensure that NaN values are handled
-            if pd.isna(price):
-                price = 0.0
-            if pd.isna(compare_price):
-                compare_price = 0.0
-            if pd.isna(discount) or discount < 0:
-                discount = 0.0
+            # # Ensure that NaN values are handled
+            # if pd.isna(price):
+            #     price = 0.0
+            # if pd.isna(compare_price):
+            #     compare_price = 0.0
+            # if pd.isna(discount) or discount < 0:
+            #     discount = 0.0
+            # if compare_price >= price:
+            #     compare_price = 0.0
+
                 
             # Exclude the row if any of the important fields are null
             if pd.isna(product_name) or pd.isna(price) or pd.isna(category_id):
@@ -741,7 +777,7 @@ class ProductCategoryUrl(models.Model):
             elif image.format == 'WEBP':
                 image_format = 'WEBP'
                 
-            image.save(output, format=image_format)
+            image.save(output, format=image_format, quality=95)
             return output.getvalue()
         
         except IOError as e:
@@ -757,6 +793,14 @@ class ProductCategoryUrl(models.Model):
             _logger.error(f"Error processing image: {e}")
             return None
 
+    # def add_extra_image(self, extra_images_data):
+    #     # Add extra images to the product template
+    #     for extra_image_data in extra_images_data:
+    #         self.env['product.image'].create({
+    #             'product_tmpl_id': product_template.id,  # Link to the product template
+    #             'image_1920': extra_image_data,  # Image data (base64 encoded)
+    #         })
+    
     def product_sort(self):
         sequence_increment = 1  # Increment by 1 for each product
         products_per_batch = 4  # Number of products before switching to the next company
@@ -974,3 +1018,18 @@ class ProductCategoryUrl(models.Model):
                     'allow_out_of_stock_order': False,
                     'out_of_stock_message': name_en,
                     })        
+                
+
+
+    def resize_image_opencv(image_data, max_width=1920):
+        nparr = np.frombuffer(image_data, np.uint8)
+        img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
+        height, width = img.shape[:2]
+        
+        if width > max_width:
+            aspect_ratio = height / width
+            new_height = int(max_width * aspect_ratio)
+            img = cv2.resize(img, (max_width, new_height), interpolation=cv2.INTER_AREA)
+        
+        _, buffer = cv2.imencode('.jpg', img)
+        return buffer.tobytes()
