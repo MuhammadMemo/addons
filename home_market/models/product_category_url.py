@@ -506,6 +506,7 @@ class ProductCategoryUrl(models.Model):
             url_products = self.env['product.template'].search([
                                                             ('GroupUrl', '=', u)])  # Fetch all matching products
                                                        
+                                                       
             for product in url_products:
                 product_name = product.name.strip().lower()  # Normalize product name from Odoo
 
